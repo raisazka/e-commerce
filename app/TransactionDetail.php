@@ -11,4 +11,8 @@ class TransactionDetail extends Model
     public function transactonHeader(){
         return $this->belongsTo('App\TransactionHeader');
     }
+
+    public function item(){
+        return $this->belongsTo('App\Item', 'item_id');
+    }
 }

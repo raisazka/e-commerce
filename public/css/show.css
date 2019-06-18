@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Helvetica-Neue";
-  src: url("../asset/font/HelveticaNeue-Thin.woff");
+  src: url("../storage/font/HelveticaNeue-Thin.otf");
 }
 
 html,
@@ -131,6 +131,9 @@ p {
 }
 
 .footer-distributed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
   background-color: #343a40;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;

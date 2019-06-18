@@ -59,7 +59,7 @@
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="{{asset('dist/img/thanos.jpg')}}" class="user-image" alt="User Image">
-                <span class="hidden-xs">Rais Azka</span>
+                <span class="hidden-xs">Admin</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
@@ -67,7 +67,7 @@
                   <img src="{{asset('dist/img/thanos.jpg')}}" class="img-circle" alt="User Image">
 
                   <p>
-                    Rais Azka - Web Developer
+                    Admin - Web Developer
                     <small>Member since Nov. 2018</small>
                   </p>
                 </li>
@@ -100,7 +100,7 @@
             <img src="{{asset('dist/img/thanos.jpg')}}" class="img-circle" alt="User Image" height="80" width="80">
           </div>
           <div class="pull-left info">
-            <p>Rais Azka</p>
+            <p>Admin</p>
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
@@ -258,6 +258,15 @@
                 <h3 class="box-title">Items</h3>
               </div>
               <!-- /.box-header -->
+              @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
               <div class="box-body">
                   <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf

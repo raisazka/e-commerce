@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Helvetica-Neue";
-    src: url("../storage/font/HelveticaNeue-Thin.woff");
+    src: url("../storage/font/HelveticaNeue-Thin.otf");
 }
 
 html,
@@ -171,7 +171,7 @@ body {
 
 .contact-us {
     min-height: 70vh;
-    background-image: url("../storage/images/6.jpg");
+    background-image: url("../storage/images/6.jpeg");
     background-size: cover;
     display: flex;
     flex-direction: column;

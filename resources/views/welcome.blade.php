@@ -14,7 +14,7 @@
 <body>
     @guest
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">ELECTRONIC A.I.</a>
+		<a class="navbar-brand" href="#">Baby Shop</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -40,7 +40,7 @@
     </nav>
     @else
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">ELECTRONIC A.I.</a>
+            <a class="navbar-brand" href="#">Baby Shop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,7 +56,13 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/home">Profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">Logout</a>
+      
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
           </div>
         </li>
                 </ul>
@@ -64,8 +70,8 @@
         </nav>
         @endguest
 	<div class="content">
-		<h1 class="title">Electronic A.I.</h1>
-		<h3>The Best Place for A.I Solutions</h3>
+		<h1 class="title">Baby Shop</h1>
+		<h3>The Best Place for Baby Solutions</h3>
 	</div>
 	<div class="container">
 		<div class="products">

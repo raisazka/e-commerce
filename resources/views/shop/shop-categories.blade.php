@@ -9,7 +9,7 @@
   </head>
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  		<a class="navbar-brand" href="#">ELECTRONIC A.I.</a>
+  		<a class="navbar-brand" href="#">Baby Shop</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
   			<span class="navbar-toggler-icon"></span>
   		</button>
@@ -24,9 +24,15 @@
           <i class="fa fa-user"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="/home">Profile</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">Logout</a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+      </form>
         </div>
       </li>
   			</ul>
@@ -41,7 +47,7 @@
               <ul class="list-group">
                 <li class="list-group-item"><a href="/shop" style="">All</a></li>
                  @foreach ($categories as $category)
-                <li class="list-group-item {{$category->id == $id?'active':''}}"> <a href="{{route('shop.categories', $category->id)}}" style="color: white;">{{$category->name}}</a></li>
+                <li class="list-group-item {{$category->id == $id?'active':''}}"> <a href="{{route('shop.categories', $category->id)}}">{{$category->name}}</a></li>
                 @endforeach 
               </ul>
             </div>
@@ -49,7 +55,7 @@
             <div class="col-lg-8">
               <div class="item-list">
               <h2>Items</h2>
-              <hr>
+              <hr style="margin-bottom: 2em;">
               <div class="row list-product">
                  @foreach($items as $item)
                 <div class="col-lg-4 item">

@@ -31,8 +31,12 @@ class TransactionController extends Controller
         foreach ($carts as $cart) {
            $total += $cart->item->price * $cart->quantity;
         }
-        if($topup->amount < $total){
+        if($topup == null || $topup->amount < $total){
             return back()->with('error', 'Balance not enough');
+        }else if($topup->status == 0){
+            return back()->with('error', 'Top Up Has\'nt been Verified');
+        }else if(count($carts) == 0){
+            return back()->with('error', 'Your Cart is Empty');
         }else{
             $transaction->user_id = Auth::user()->id;
             $transaction->save();
@@ -45,7 +49,7 @@ class TransactionController extends Controller
             
             $topup->amount = $topup->amount - $total;
             $topup->save();
-
+            Cart::where('user_id', Auth::user()->id)->delete();
             return redirect('/home')->with('success', 'Success Buy Items!');
         }
     }
